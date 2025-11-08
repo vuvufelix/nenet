@@ -1,0 +1,51 @@
+nav {
+    padding: 1.6% 5%;
+
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        list-style: none;
+
+        li {
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+
+            a {
+                text-decoration: none;
+                font-weight: bold;
+                color: var(--color-star);
+                transition: .2s;
+            }
+
+            a.toggle {
+                color: red;            
+                font-size: 0.8rem;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    height: 0.17rem;
+                    background-color: orange;
+                    width: 100%;
+                    bottom: -4px;
+                }
+
+            }
+        }
+
+    }
+    
+    li:hover {
+        &::before {
+            position: absolute;
+            content: "";
+            height: 0.17rem;
+            background-color: orange;
+            width: 100%;
+            bottom: -4px;
+        }
+    }
+}

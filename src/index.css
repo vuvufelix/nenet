@@ -1,0 +1,24 @@
+:root {
+  --color-star: #fff;
+  --color-default: #fff;
+  --color-item: #000;
+  --bg-color: gray;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: column;
+}
