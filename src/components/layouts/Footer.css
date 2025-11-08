@@ -1,0 +1,31 @@
+footer {
+    background-color: var(--bg-color-footer);
+    padding: 1rem;
+    box-shadow: 0px -20px 20px 20px #dfdbdb;
+    z-index: 1;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        justify-content: center;
+        align-items: center;
+
+        small {
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+
+                text-decoration: none;
+                color: var(--color-star);
+                transition: .3s;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

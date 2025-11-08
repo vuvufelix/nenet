@@ -1,5 +1,6 @@
 nav {
     padding: 1.6% 5%;
+    z-index: 1;
 
     ul {
         display: flex;
@@ -20,9 +21,9 @@ nav {
                 transition: .2s;
             }
 
-            a.toggle {
-                color: red;            
+            a.toggle {            
                 font-size: 0.8rem;
+                font-style: italic;
 
                 &::before {
                     position: absolute;
@@ -46,6 +47,7 @@ nav {
             background-color: orange;
             width: 100%;
             bottom: -4px;
+            font-style: italic;
         }
     }
 }

@@ -1,8 +1,9 @@
 :root {
-  --color-star: #fff;
+  --color-star: #9f3fbb;
   --color-default: #fff;
   --color-item: #000;
-  --bg-color: gray;
+  --bg-color: #dfdbdb;
+  --bg-color-footer: #b2aecb;
 }
 
 * {
