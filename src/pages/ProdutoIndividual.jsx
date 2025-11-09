@@ -3,12 +3,15 @@ import { useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import { FaCartShopping } from "react-icons/fa6";
 import Processando from "../components/Processando.jsx"
+import FilterCategoryContext from "../context/filterContext.jsx"
+import { useContext } from "react"
 import { useState, useEffect } from "react"
 
 const ProdutoIndividual = () => {
 
     const { id } = useParams()
     const [addLocalStorage, setAddLocalStorage] = useState([])
+    const FilterData = useContext(FilterCategoryContext)
 
     useEffect(() => {
         const localStorageData = JSON.parse(localStorage.getItem("Products"))
@@ -42,6 +45,7 @@ const ProdutoIndividual = () => {
     useEffect(() => {
         if(addLocalStorage.length > 0) {
             localStorage.setItem("Products", JSON.stringify(addLocalStorage))
+            FilterData.setValueLocalStorage(addLocalStorage)
         }
     }, [addLocalStorage])
 

@@ -7,9 +7,10 @@ export default FilterCategoryContext
 export function FilterCategoryProvider({ children }) {
 
     const [ filterValue, setFilterValue ] = useState([])
+    const [ valueLocalStorage, setValueLocalStorage ] = useState([])
 
     return (
-        <FilterCategoryContext.Provider value={{filterValue, setFilterValue}}>
+        <FilterCategoryContext.Provider value={{filterValue, setFilterValue, valueLocalStorage, setValueLocalStorage}}>
             { children }
         </FilterCategoryContext.Provider>
     )

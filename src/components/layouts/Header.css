@@ -64,18 +64,17 @@ header {
                 font-size: 1.2rem;
                 position: relative;
 
-                span {
+                .quantity {
                     position: absolute;
                     z-index: 1;
                     width: 1rem;
                     height: 1rem;
-                    color: black;
                     background-color: red;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     border-radius: 100%;
-                    font-size: 0.5rem;
+                    font-size: 0.6rem;
                     font-weight: bold;
                     color: var(--color-default);
 

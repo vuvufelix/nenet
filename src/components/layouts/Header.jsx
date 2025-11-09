@@ -3,8 +3,12 @@ import { FaCartShopping } from "react-icons/fa6"
 import { FaLeaf } from "react-icons/fa6"
 import { Link } from "react-router-dom"
 import "./Header.css"
+import FilterCategoryContext from "../../context/filterContext.jsx"
+import { useContext } from "react"
 
 const Header = () => {
+
+    const FilterData = useContext(FilterCategoryContext)
 
     function removeToggle() {
         Array.from(document.getElementsByTagName("a")).forEach(element => {
@@ -28,7 +32,7 @@ const Header = () => {
                     </form>
                     <Link onClick={removeToggle} className="carBuy" to={"/carrinho"}>
                         <FaCartShopping/>
-                        <span className="quantity">5</span>
+                        { FilterData.valueLocalStorage.length > 0 && <span className="quantity">{FilterData.valueLocalStorage.length}</span> }
                     </Link>
                 </div>
             </div>
