@@ -1,8 +1,8 @@
 header {
     width: 100%;
-    padding: 1.5% 5%;
+    padding: 1.5rem 5%;
     background-color: var(--color-default);
-    z-index: 1;
+    z-index: 3;
     position: sticky;
     top: 0;
 
@@ -19,6 +19,11 @@ header {
 
             .logo-title {
                 font-size: 1.8rem;
+            }
+
+            h1 {
+                font-family: "Playwrite HU", cursive;
+                font-size: 1.4rem;
             }
         }
 

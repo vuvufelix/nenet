@@ -6,13 +6,12 @@ const CardItem = ({products}) => {
     return (
         <>
             {products.map((product) => (
-                    <div key={product.id} className="cardProduct">
-                        <Link><img className="img_" src={product.image}/></Link>
-                        <span>{product.name}</span>
-                        <small><strong>usd {product.price}</strong></small>
-                    </div>
-                )
-            )}
+                <div key={product.id} className="cardProduct">
+                    <Link to={`/product/${product.id}`}><img className="img_" src={product.image}/></Link>
+                    <span>{product.name}</span>
+                    <small><strong>usd {product.price}</strong></small>
+                </div>
+            ))}
         </>
     )
 }

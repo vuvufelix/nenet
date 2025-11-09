@@ -28,7 +28,7 @@ const NavBar = () => {
             }
         }
 
-        fetch(`http://localhost:8080/products/${event.target.innerHTML}`)
+        fetch(`http://localhost:8080/products/${event.target.innerHTML !== "TODOS OS PRODUTOS" ? event.target.innerHTML : ""}`)
         .then(res => {
             return res.json()
         }).then(data => {

@@ -1,9 +1,9 @@
 nav {
     background-color: var(--bg-color);
-    padding: 1.6% 5%;
-    z-index: 1;
+    padding: 1.9% 5%;
+    z-index: 3;
     position: sticky;
-    top: 11%;
+    top: 5.4rem;
 
     ul {
         display: flex;
