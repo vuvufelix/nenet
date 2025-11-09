@@ -3,10 +3,19 @@ import { useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import { FaCartShopping } from "react-icons/fa6";
 import Processando from "../components/Processando.jsx"
+import { useState, useEffect } from "react"
 
 const ProdutoIndividual = () => {
 
     const { id } = useParams()
+    const [addLocalStorage, setAddLocalStorage] = useState([])
+
+    useEffect(() => {
+        const localStorageData = JSON.parse(localStorage.getItem("Products"))
+        if(localStorageData) {
+            setAddLocalStorage(localStorageData)
+        }
+    }, [])
 
     const { data, isLoading } = useQuery({
         queryKey: ["Products"],
@@ -24,7 +33,17 @@ const ProdutoIndividual = () => {
         }
     })
 
-    console.log(data)
+    function addCartShopping() {
+        if(data) {
+            setAddLocalStorage((old) => [...old, data])
+        }
+    }
+
+    useEffect(() => {
+        if(addLocalStorage.length > 0) {
+            localStorage.setItem("Products", JSON.stringify(addLocalStorage))
+        }
+    }, [addLocalStorage])
 
     return (
         <main>
@@ -43,7 +62,7 @@ const ProdutoIndividual = () => {
                                 <span>DESCRIÇÃO</span>
                                 <p>{data.description}</p>
                             </div>
-                            <button><FaCartShopping/>ADICIONAR AO CARRINHO</button>
+                            <button onClick={addCartShopping}><FaCartShopping/>ADICIONAR AO CARRINHO</button>
                         </div>
                     </section>
                 )
