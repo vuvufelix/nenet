@@ -1,3 +1,5 @@
+import "./Produtos.css"
+
 const TodosTenis = () => {
     return (
         <main>

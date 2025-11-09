@@ -1,3 +1,5 @@
+import "./Produtos.css"
+
 const TodasBolsas = () => {
     return (
         <main>

@@ -1,7 +1,10 @@
+import "./Produtos.css"
+import Processando from "../components/Processando.jsx"
+
 const TodasCamisetas = () => {
     return (
         <main>
-            Camisetas
+            <Processando/>
         </main>
     )
 }

@@ -1,0 +1,26 @@
+section {
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.loading {
+    font-size: 2rem;
+    color: var(--color-star);
+    animation: animateLogo 1.8s ease-out infinite;
+}
+
+@keyframes animateLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(35deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

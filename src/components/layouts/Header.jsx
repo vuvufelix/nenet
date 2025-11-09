@@ -1,6 +1,6 @@
 import { FaMagnifyingGlass } from "react-icons/fa6"
 import { FaCartShopping } from "react-icons/fa6"
-import { FaGem } from "react-icons/fa6"
+import { FaLeaf } from "react-icons/fa6"
 import { Link } from "react-router-dom"
 import "./Header.css"
 
@@ -18,7 +18,7 @@ const Header = () => {
         <header>
             <div className="header-container">
                 <div className="nenet-title">
-                    <FaGem className="logo-title"/>
+                    <FaLeaf className="logo-title"/>
                     <h1>Nenet</h1>
                 </div>
                 <div className="search-info-container">
