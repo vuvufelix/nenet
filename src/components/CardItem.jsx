@@ -1,4 +1,5 @@
 import "./CardItem.css"
+import { Link } from "react-router-dom"
 
 const CardItem = ({products}) => {
 
@@ -6,7 +7,7 @@ const CardItem = ({products}) => {
         <>
             {products.map((product) => (
                     <div key={product.id} className="cardProduct">
-                        <img className="img_" src={product.image}/>
+                        <Link><img className="img_" src={product.image}/></Link>
                         <span>{product.name}</span>
                         <small><strong>usd {product.price}</strong></small>
                     </div>
