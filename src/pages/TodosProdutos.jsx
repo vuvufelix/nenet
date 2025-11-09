@@ -2,8 +2,12 @@ import "./Produtos.css"
 import CardItem from "../components/CardItem.jsx"
 import { useQuery } from "@tanstack/react-query"
 import Processando from "../components/Processando.jsx"
+import FilterCategoryContext from "../context/filterContext.jsx"
+import { useContext } from "react"
 
 const TodosProdutos = () => {
+
+    const FilterData = useContext(FilterCategoryContext)
 
     const { data, isLoading } = useQuery({
         queryKey: ["Products"],
@@ -14,11 +18,9 @@ const TodosProdutos = () => {
         }
     })
 
-    if(isLoading) return <Processando/>
-
     return (
         <main>
-            {isLoading ? <Processando/> : <CardItem products={data}/>}
+            {isLoading ? <Processando/> : <CardItem products={data.length > 0 ? data : FilterData.filterValue}/>}
         </main>
     )
 }

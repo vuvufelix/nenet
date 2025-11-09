@@ -28,16 +28,28 @@ const NavBar = () => {
             }
         }
 
-        fetch(`http://localhost:8080/products/${event.target.innerHTML !== "TODOS OS PRODUTOS" ? event.target.innerHTML : ""}`)
-        .then(res => {
-            return res.json()
-        }).then(data => {
-            FilterData.setFilterValue(data)
-            console.log(data)
-        }).catch(error => {
-            console.log(error)
-        })
+        if(event.target.innerHTML !== "TODOS OS PRODUTOS") {
+            fetch(`http://localhost:8080/products/${event.target.innerHTML}`)
+            .then(res => {
+                return res.json()
+            }).then(data => {
+                FilterData.setFilterValue(data)
+                console.log(data)
+            }).catch(error => {
+                console.log(error)
+            })
+        }
 
+        if(event.target.innerHTML == "TODOS OS PRODUTOS") {
+            fetch("http://localhost:8080/products")
+            .then(res => {
+                return res.json()
+            }).then(data => {
+                FilterData.setFilterValue(data)
+            }).catch(error => {
+                console.log(error)
+            })
+        }
     }
 
     return (
