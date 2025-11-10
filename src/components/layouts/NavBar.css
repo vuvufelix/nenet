@@ -19,6 +19,7 @@ nav {
 
             a {
                 text-decoration: none;
+                text-transform: uppercase;
                 font-weight: bold;
                 color: var(--color-star);
                 transition: .2s;

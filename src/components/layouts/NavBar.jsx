@@ -55,11 +55,11 @@ const NavBar = () => {
     return (
         <nav>
             <ul>
-                <li><Link onClick={(e) => funcNavToggle(e)} to={"/"}>TODOS OS PRODUTOS</Link></li>
-                <li><Link onClick={(e) => funcNavToggle(e)} to={"/camisetas"}>CAMISA</Link></li>
-                <li><Link onClick={(e) => funcNavToggle(e)} to={"/tenis"}>TENIS</Link></li>
-                <li><Link onClick={(e) => funcNavToggle(e)} to={"/sapatos"}>SAPATO</Link></li>
-                <li><Link onClick={(e) => funcNavToggle(e)} to={"/bolsas"}>BOLSA</Link></li>
+                <li><Link onClick={(e) => funcNavToggle(e)} to={"/"}>todos os produtos</Link></li>
+                <li><Link onClick={(e) => funcNavToggle(e)} to={"/camisetas"}>camisa</Link></li>
+                <li><Link onClick={(e) => funcNavToggle(e)} to={"/tenis"}>tenis</Link></li>
+                <li><Link onClick={(e) => funcNavToggle(e)} to={"/sapatos"}>sapato</Link></li>
+                <li><Link onClick={(e) => funcNavToggle(e)} to={"/bolsas"}>bolsa</Link></li>
             </ul>
         </nav>
     )
