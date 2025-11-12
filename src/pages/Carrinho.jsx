@@ -1,41 +1,41 @@
 import FilterCategoryContext from "../context/filterContext.jsx"
 import { FaRegTrashCan } from "react-icons/fa6";
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import "./Carrinho.css"
-import { loadStripe } from "@stripe/stripe-js"
-
-const stripePromise = loadStripe("pk_test_51SPa0g9fiJEIAWHvA7pnA74Fvhf6m9IznpXofHHhzUyIUjGOtBThtUaPWD9HCNd7FWsrKrc8JL7HSHxwum1tyrV800kuHF9Qmf")
 
 const Carrinho = () => {
 
     const FilterData = useContext(FilterCategoryContext)
-    const [products, setProducts] = useState({})
 
     function deleteProduct(id) {
         const deleted = FilterData.valueLocalStorage.filter(product => product.id !== id)
-
+        
         localStorage.setItem("Products", JSON.stringify(deleted))
 
         FilterData.setValueLocalStorage(JSON.parse(localStorage.getItem("Products")))
     }
 
-    async function handleCheckout(productAll) {
-        const stripe = await stripePromise;
-
-        productAll.map(product => {
-            setProducts(product)
-        })
+    async function handleCheckout(products) {
+        let AllProducts = products.map(product => product)
 
         const res = await fetch("http://localhost:8080/create-checkout-session", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(products)
+            body: JSON.stringify({ AllProducts })
         })
 
-        const data = await res.json();
-        window.location.href = data.url;
+        if (!res.ok) {
+            console.error("Erro ao criar a sessão de checkout no backend. Status:", res.status)
+            alert("Erro no servidor ao iniciar o pagamento.")
+            return
+        }
+
+        const session = await res.json()
+        
+        window.location.href = session.url
+        
     }
 
 
