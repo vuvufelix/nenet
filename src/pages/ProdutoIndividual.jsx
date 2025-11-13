@@ -12,6 +12,7 @@ const ProdutoIndividual = () => {
     const { id } = useParams()
     const [addLocalStorage, setAddLocalStorage] = useState([])
     const FilterData = useContext(FilterCategoryContext)
+    //const cont = useRef(addLocalStorage)
 
     useEffect(() => {
         const localStorageData = JSON.parse(localStorage.getItem("Products"))
@@ -37,9 +38,14 @@ const ProdutoIndividual = () => {
     })
 
     function addCartShopping() {
+        let cont = 1
+        const virifyIfExistProduct = addLocalStorage.find(product => product.id == data.id)
+        
+        if(virifyIfExistProduct) return
+
         if(data) {
-            setAddLocalStorage((old) => [...old, data])
-        }
+           setAddLocalStorage((old) => [...old, data])
+        } 
     }
 
     useEffect(() => {
@@ -66,7 +72,7 @@ const ProdutoIndividual = () => {
                                 <span>DESCRIÇÃO</span>
                                 <p>{data.description}</p>
                             </div>
-                            <button onClick={addCartShopping}><FaCartShopping/>ADICIONAR AO CARRINHO</button>
+                            <button onClick={addCartShopping}><FaCartShopping/>adicionar ao carrinho</button>
                         </div>
                     </section>
                 )

@@ -1,11 +1,13 @@
 import FilterCategoryContext from "../context/filterContext.jsx"
 import { FaRegTrashCan } from "react-icons/fa6";
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
 import "./Carrinho.css"
 
 const Carrinho = () => {
 
     const FilterData = useContext(FilterCategoryContext)
+    const [subtotalPrice, setSubtotalPrice] = useState(0)
+    const [totalPrice, setTotalPrice] = useState(0)
 
     function deleteProduct(id) {
         const deleted = FilterData.valueLocalStorage.filter(product => product.id !== id)
@@ -14,6 +16,18 @@ const Carrinho = () => {
 
         FilterData.setValueLocalStorage(JSON.parse(localStorage.getItem("Products")))
     }
+
+    function sumPrice() {
+        let price = 0
+        FilterData.valueLocalStorage.map(product => price += product.price)
+        setSubtotalPrice(price)
+        setTotalPrice(price + 10)
+    }
+
+    useEffect(() => {
+        sumPrice()
+    }, [FilterData.valueLocalStorage])
+
 
     async function handleCheckout(products) {
         let AllProducts = products.map(product => product)
@@ -60,7 +74,7 @@ const Carrinho = () => {
                     <h3>resumo do pedido</h3>
                     <div>
                         <span>Subtotal de produtos</span>
-                        <span>usd </span>
+                        <span>usd {subtotalPrice}</span>
                     </div>
                     <div>
                         <span>Entrega</span>
@@ -69,7 +83,7 @@ const Carrinho = () => {
                     <hr/>
                     <div>
                         <strong>Total</strong>
-                        <strong>usd </strong>
+                        <strong>usd {totalPrice}</strong>
                     </div>
                     <button onClick={() => handleCheckout(FilterData.valueLocalStorage)}>finalizar a compra</button>
                 </div>
