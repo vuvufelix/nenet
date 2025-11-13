@@ -3,12 +3,12 @@ import { FaCartShopping } from "react-icons/fa6"
 import { FaLeaf } from "react-icons/fa6"
 import { Link } from "react-router-dom"
 import "./Header.css"
-import FilterCategoryContext from "../../context/filterContext.jsx"
+import GlobalDataContext from "../../context/DadosGlobais.jsx"
 import { useContext } from "react"
 
 const Header = () => {
 
-    const FilterData = useContext(FilterCategoryContext)
+    const DataProject = useContext(GlobalDataContext)
 
     function removeToggle() {
         Array.from(document.getElementsByTagName("a")).forEach(element => {
@@ -32,7 +32,7 @@ const Header = () => {
                     </form>
                     <Link onClick={removeToggle} className="carBuy" to={"/carrinho"}>
                         <FaCartShopping/>
-                        { FilterData.valueLocalStorage.length > 0 && <span className="quantity">{FilterData.valueLocalStorage.length}</span> }
+                        { DataProject.valueLocalStorage.length > 0 && <span className="quantity">{DataProject.valueLocalStorage.length}</span> }
                     </Link>
                 </div>
             </div>

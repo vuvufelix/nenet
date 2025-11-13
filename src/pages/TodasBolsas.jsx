@@ -1,12 +1,12 @@
 import "./Produtos.css"
 import Processando from "../components/Processando.jsx"
 import CardItem from "../components/CardItem.jsx"
-import FilterCategoryContext from "../context/filterContext.jsx"
+import GlobalDataContext from "../context/DadosGlobais.jsx"
 import { useContext } from "react"
 
 const TodasBolsas = () => {
 
-    const FilterData = useContext(FilterCategoryContext)
+    const FilterData = useContext(GlobalDataContext)
 
     return (
         <main>

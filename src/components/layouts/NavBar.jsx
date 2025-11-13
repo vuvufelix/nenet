@@ -1,14 +1,14 @@
 import "./NavBar.css"
 import { Link } from "react-router-dom"
 import { useContext } from "react"
-import FilterCategoryContext from "../../context/filterContext.jsx"
+import GlobalDataContext from "../../context/DadosGlobais.jsx"
 
 import { useState } from "react"
 
 const NavBar = () => {
     const [value, setValue] = useState(false)
 
-    const FilterData = useContext(FilterCategoryContext)
+    const FilterData = useContext(GlobalDataContext)
 
     function funcNavToggle(event) {
 

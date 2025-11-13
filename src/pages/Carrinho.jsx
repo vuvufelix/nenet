@@ -1,32 +1,32 @@
-import FilterCategoryContext from "../context/filterContext.jsx"
+import GlobalDataContext from "../context/DadosGlobais.jsx"
 import { FaRegTrashCan } from "react-icons/fa6";
 import { useContext, useState, useEffect } from "react"
 import "./Carrinho.css"
 
 const Carrinho = () => {
 
-    const FilterData = useContext(FilterCategoryContext)
+    const AllData = useContext(GlobalDataContext)
     const [subtotalPrice, setSubtotalPrice] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
 
     function deleteProduct(id) {
-        const deleted = FilterData.valueLocalStorage.filter(product => product.id !== id)
+        const deleted = AllData.valueLocalStorage.filter(product => product.id !== id)
         
         localStorage.setItem("Products", JSON.stringify(deleted))
 
-        FilterData.setValueLocalStorage(JSON.parse(localStorage.getItem("Products")))
+        AllData.setValueLocalStorage(JSON.parse(localStorage.getItem("Products")))
     }
 
     function sumPrice() {
         let price = 0
-        FilterData.valueLocalStorage.map(product => price += product.price)
+        AllData.valueLocalStorage.map(product => price += product.price)
         setSubtotalPrice(price)
         setTotalPrice(price + 10)
     }
 
     useEffect(() => {
         sumPrice()
-    }, [FilterData.valueLocalStorage])
+    }, [AllData.valueLocalStorage])
 
 
     async function handleCheckout(products) {
@@ -56,10 +56,10 @@ const Carrinho = () => {
     return (
         <main className="car-container">
             <h2>seu carrinho</h2>
-            <span>Total ({FilterData.valueLocalStorage.length} produtos)</span>
+            <span>Total ({AllData.valueLocalStorage.length} produtos)</span>
             <div className="container-infoCar">
                 <div className="allProduct-car">
-                    {FilterData.valueLocalStorage.map(product => (
+                    {AllData.valueLocalStorage.map(product => (
                         <div className="product" key={product.id}>
                             <img src={product.image} alt={product.name}/>
                             <div className="info">
@@ -85,7 +85,7 @@ const Carrinho = () => {
                         <strong>Total</strong>
                         <strong>usd {totalPrice}</strong>
                     </div>
-                    <button onClick={() => handleCheckout(FilterData.valueLocalStorage)}>finalizar a compra</button>
+                    <button onClick={() => handleCheckout(AllData.valueLocalStorage)}>finalizar a compra</button>
                 </div>
             </div>
         </main>

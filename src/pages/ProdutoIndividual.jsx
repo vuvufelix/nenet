@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import { FaCartShopping } from "react-icons/fa6";
 import Processando from "../components/Processando.jsx"
-import FilterCategoryContext from "../context/filterContext.jsx"
+import GlobalDataContext from "../context/DadosGlobais.jsx"
 import { useContext } from "react"
 import { useState, useEffect } from "react"
 
@@ -11,7 +11,7 @@ const ProdutoIndividual = () => {
 
     const { id } = useParams()
     const [addLocalStorage, setAddLocalStorage] = useState([])
-    const FilterData = useContext(FilterCategoryContext)
+    const IndividualProject = useContext(GlobalDataContext)
     //const cont = useRef(addLocalStorage)
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const ProdutoIndividual = () => {
     useEffect(() => {
         if(addLocalStorage.length > 0) {
             localStorage.setItem("Products", JSON.stringify(addLocalStorage))
-            FilterData.setValueLocalStorage(addLocalStorage)
+            IndividualProject.setValueLocalStorage(addLocalStorage)
         }
     }, [addLocalStorage])
 
