@@ -9,6 +9,23 @@
   --bg-color: #dfdbdb;
   --bg-color-footer: #b2aecb;
   --color-star2: #82219f;
+  --placeholder-color: #8b7f7f;
+  --bg-input: #dfdbdb;
+  --color-h2: #000;
+  --bg-color-car: #fff;
+}
+
+.dark-mode:root {
+  --color-default: #3e054f;
+  --bg-color: #17021c;
+  --color-star: #fff;
+  --color-item: #fff;
+  --color-star2: #dfdbdb;
+  --bg-color-footer: #472751;
+  --placeholder-color: #cfcfcf;
+  --bg-input: #a611c9;
+  --color-h2: #a611c9;
+  --bg-color-car: #251531;
 }
 
 * {
@@ -16,6 +33,10 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
+}
+
+html {
+  transition: .4s;
 }
 
 body {

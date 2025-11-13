@@ -19,6 +19,10 @@ img {
     justify-content: space-between;
     height: 100%;
 
+    small {
+        color: var(--color-item);
+    }
+
     .name-price {
         display: flex;
         flex-direction: column;
@@ -26,10 +30,12 @@ img {
 
         span {
             font-size: 1.5rem;
+            color: var(--color-item);
         }
 
         strong {
             font-size: 0.85rem;
+            color: var(--color-item);
         }
     }
 
@@ -37,11 +43,13 @@ img {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        color: var(--color-item);
 
         p {
             text-align: justify;
             line-height: 1.8em;
             font-size: 0.9rem;
+            color: var(--color-item);
         }
     }
 

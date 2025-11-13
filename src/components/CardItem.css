@@ -15,6 +15,7 @@
 
     span, small {
         padding-left: .7rem;
+        color: var(--color-item);
     }
 
     small {

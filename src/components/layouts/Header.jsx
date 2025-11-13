@@ -5,6 +5,8 @@ import { Link } from "react-router-dom"
 import "./Header.css"
 import GlobalDataContext from "../../context/DadosGlobais.jsx"
 import { useContext } from "react"
+import { FaRegSun } from "react-icons/fa6"
+import { FaRegMoon } from "react-icons/fa6"
 
 const Header = () => {
 
@@ -16,6 +18,11 @@ const Header = () => {
                 element.classList.remove("toggle")
             }
         })
+    }
+
+    function theme() {
+        const html = document.querySelector("html")
+        html.classList.toggle("dark-mode")
     }
 
     return (
@@ -34,6 +41,9 @@ const Header = () => {
                         <FaCartShopping/>
                         { DataProject.valueLocalStorage.length > 0 && <span className="quantity">{DataProject.valueLocalStorage.length}</span> }
                     </Link>
+                    <div className="toggleTheme" onClick={theme}>
+                        <FaRegSun className="icon-day"/>
+                    </div>
                 </div>
             </div>
         </header>

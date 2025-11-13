@@ -43,7 +43,12 @@ header {
                     border: none;
                     border-radius: 0.3rem;
                     text-indent: 0.7rem;
-                    background-color: var(--bg-color);
+                    background-color: var(--bg-input);
+                    color: var(--color-item);
+                }
+
+                input::placeholder {
+                    color: var(--placeholder-color);
                 }
 
                 button {
@@ -80,6 +85,16 @@ header {
 
                     top: 0.5rem;
                     right: -0.5rem;
+                }
+            }
+
+            .toggleTheme {
+                display: flex;
+
+                .icon-day {
+                    color: orange;
+                    cursor: pointer;
+                    transition: .3s;
                 }
             }
         }

@@ -1,7 +1,7 @@
 footer {
     background-color: var(--bg-color-footer);
     padding: 1rem;
-    box-shadow: 0px -20px 20px 20px #dfdbdb;
+    box-shadow: 0px -20px 20px 20px var(--bg-color);
     z-index: 1;
 
     div {
