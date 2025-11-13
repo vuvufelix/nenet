@@ -10,6 +10,8 @@ import TodasBolsas from './pages/TodasBolsas.jsx'
 import TodasCamisetas from './pages/TodasCamisetas.jsx'
 import ProdutoIndividual from "./pages/ProdutoIndividual.jsx"
 import Carrinho from "./pages/Carrinho.jsx"
+import PagamentoCancelado from "./pages/PagamentoCancelado.jsx"
+import SucessoNoPagamento from "./pages/SucessoNoPagamento.jsx"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <ProdutoIndividual/>
+      },
+      {
+        path: "/success",
+        element: <SucessoNoPagamento/>
+      },
+      {
+        path: "/cancel",
+        element: <PagamentoCancelado/>
       }
     ]
   }
