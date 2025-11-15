@@ -23,7 +23,7 @@ header {
 
             h1 {
                 font-family: "Playwrite HU", cursive;
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
         }
 
@@ -97,6 +97,47 @@ header {
                     transition: .3s;
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    header {
+        padding: 1rem 3%;
+
+        .header-container {
+            flex-direction: column;
+
+            .nenet-title {
+                justify-content: flex-start;
+                width: 100%;
+                margin-bottom: 0.6rem;
+
+                .logo-title {
+                    font-size: 1.5rem;
+                }
+
+                h1 {
+                    font-size: 1.2rem;
+                }
+            }
+
+            .search-info-container {
+                width: 100%;
+                
+                form {
+                    flex: 1;
+
+                    input {
+                        flex: 1;
+                    }
+
+                    input::placeholder {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+
         }
     }
 }
