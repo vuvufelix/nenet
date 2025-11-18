@@ -28,8 +28,9 @@ const Carrinho = () => {
         sumPrice()
     }, [AllData.valueLocalStorage])
 
-
     async function handleCheckout(products) {
+        if(subtotalPrice == 0) return 
+
         let AllProducts = products.map(product => product)
 
         const res = await fetch("http://localhost:8080/create-checkout-session", {
@@ -58,7 +59,7 @@ const Carrinho = () => {
             <h2>seu carrinho</h2>
             <span>Total ({AllData.valueLocalStorage.length} produtos)</span>
             <div className="container-infoCar">
-                <div className="allProduct-car">
+                <section className="allProduct-car">
                     {AllData.valueLocalStorage.map(product => (
                         <div className="product" key={product.id}>
                             <img src={product.image} alt={product.name}/>
@@ -69,8 +70,8 @@ const Carrinho = () => {
                             </div>
                         </div>
                     ))}
-                </div>
-                <div className="finish-buy">
+                </section>
+                <section className="finish-buy">
                     <h3>resumo do pedido</h3>
                     <div>
                         <span>Subtotal de produtos</span>
@@ -83,10 +84,10 @@ const Carrinho = () => {
                     <hr/>
                     <div>
                         <strong>Total</strong>
-                        <strong>usd {totalPrice}</strong>
+                        <strong>usd {subtotalPrice > 0 ? totalPrice : 0}</strong>
                     </div>
                     <button onClick={() => handleCheckout(AllData.valueLocalStorage)}>finalizar a compra</button>
-                </div>
+                </section>
             </div>
         </main>
     )

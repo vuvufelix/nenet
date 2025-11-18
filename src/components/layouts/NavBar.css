@@ -69,7 +69,7 @@ nav.mobile {
     nav.mobile {
         display: flex;
         padding: 1.9% 5%;
-        z-index: 3;
+        z-index: 4;
         position: sticky;
         top: 6.5rem;
         background-color: var(--bg-color);
