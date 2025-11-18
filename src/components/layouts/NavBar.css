@@ -1,9 +1,9 @@
 nav.desktop {
     background-color: var(--bg-color);
-    padding: 1.9% 5%;
+    padding: 17.8px 5%;
     z-index: 3;
     position: sticky;
-    top: 5.4rem;
+    top: 5.9rem;
     display: block;
 
     ul {
@@ -68,10 +68,10 @@ nav.mobile {
     
     nav.mobile {
         display: flex;
-        padding: 1.9% 5%;
+        padding: 8.7px 5%;
         z-index: 4;
         position: sticky;
-        top: 6.5rem;
+        top: 6.58rem;
         background-color: var(--bg-color);
 
         ul {

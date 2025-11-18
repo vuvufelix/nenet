@@ -57,7 +57,7 @@ const Carrinho = () => {
     return (
         <main className="car-container">
             <h2>seu carrinho</h2>
-            <span>Total ({AllData.valueLocalStorage.length} produtos)</span>
+            <span>Total ({AllData.valueLocalStorage.length} {AllData.valueLocalStorage.length <= 1 ? "produto" : "produtos"})</span>
             <div className="container-infoCar">
                 <section className="allProduct-car">
                     {AllData.valueLocalStorage.map(product => (
@@ -81,8 +81,7 @@ const Carrinho = () => {
                         <span>Entrega</span>
                         <span>usd 10,00</span>
                     </div>
-                    <hr/>
-                    <div>
+                    <div className="arc">
                         <strong>Total</strong>
                         <strong>usd {subtotalPrice > 0 ? totalPrice : 0}</strong>
                     </div>

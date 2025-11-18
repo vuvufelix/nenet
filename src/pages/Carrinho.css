@@ -72,7 +72,7 @@
             background-color: var(--bg-color-car);
             padding: 1rem;
             border-radius: 0.4rem;
-            height: 16rem;
+            height: 15rem;
             width: 30%;
             justify-content: space-between;
 
@@ -86,6 +86,11 @@
                 display: flex;
                 justify-content: space-between;
                 color: var(--color-item);
+            }
+
+            .arc {
+                border-top: 1px solid var(--color-item);
+                padding-top: 0.5rem;
             }
 
             button {
