@@ -1,9 +1,10 @@
-nav {
+nav.desktop {
     background-color: var(--bg-color);
     padding: 1.9% 5%;
     z-index: 3;
     position: sticky;
     top: 5.4rem;
+    display: block;
 
     ul {
         display: flex;
@@ -52,6 +53,57 @@ nav {
             width: 100%;
             bottom: -4px;
             font-style: italic;
+        }
+    }
+}
+
+nav.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 640px) {
+    nav.desktop {
+        display: none;
+    }
+    
+    nav.mobile {
+        display: flex;
+        padding: 1.9% 5%;
+        z-index: 3;
+        position: sticky;
+        top: 6.5rem;
+        background-color: var(--bg-color);
+
+        ul {
+            display: flex;
+            list-style: none;
+            width: 100%;
+            justify-content: space-between;
+
+            li {
+                a {
+                    font-size: 1.5rem;
+                    color: var(--color-star);
+                    transition: .4s;
+
+                    &:hover {
+                        color: var(--color-star2);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 430px) {
+    nav.mobile {
+        ul {
+            li {
+                a {
+                    font-size: 1.25rem;
+                }
+            }
         }
     }
 }

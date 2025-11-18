@@ -18,6 +18,8 @@ const TodosProdutos = () => {
         }
     })
 
+    console.log(data)
+
     return (
         <main>
             {isLoading ? <Processando/> : <CardItem products={data.length > 0 ? data : DataProject.filterValue}/>}

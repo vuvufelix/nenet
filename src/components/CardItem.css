@@ -22,3 +22,19 @@
         padding-bottom: .9rem;
     }
 }
+
+@media screen and (max-width: 1000px) {
+    .cardProduct {
+        width: calc(100% / 3.5 );
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .cardProduct {
+        width: calc(100% / 2.3);
+
+        span {
+            font-size: 0.9rem;
+        }
+    }
+}

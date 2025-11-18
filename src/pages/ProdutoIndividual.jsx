@@ -61,7 +61,9 @@ const ProdutoIndividual = () => {
                 <Processando/> 
                 : (
                     <section className="individual-data">
-                        <img src={data.image} alt={data.name}/>
+                        <div className="image">
+                            <img src={data.image} alt={data.name}/>
+                        </div>
                         <div className="container-details">
                             <small>{data.category}</small>
                             <div className="name-price">

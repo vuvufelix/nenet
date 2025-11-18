@@ -3,7 +3,7 @@ import "./Processando.css"
 
 const Processando = () => {
     return (
-        <section>
+        <section className="loading-container">
             <FaLeaf className="loading"/>        
         </section>
     )

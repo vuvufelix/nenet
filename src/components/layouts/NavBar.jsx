@@ -2,12 +2,16 @@ import "./NavBar.css"
 import { Link } from "react-router-dom"
 import { useContext } from "react"
 import GlobalDataContext from "../../context/DadosGlobais.jsx"
+import { FaShirt } from "react-icons/fa6"
+import { PiSneakerFill } from "react-icons/pi"
+import { GiRunningShoe } from "react-icons/gi"
+import { FaShoppingBag } from "react-icons/fa"
+import { FaDumpster } from "react-icons/fa6"
 
 import { useState } from "react"
 
 const NavBar = () => {
     const [value, setValue] = useState(false)
-
     const FilterData = useContext(GlobalDataContext)
 
     function funcNavToggle(event) {
@@ -35,6 +39,7 @@ const NavBar = () => {
             }).then(data => {
                 FilterData.setFilterValue(data)
                 console.log(data)
+                console.log(data)
             }).catch(error => {
                 console.log(error)
             })
@@ -46,6 +51,7 @@ const NavBar = () => {
                 return res.json()
             }).then(data => {
                 FilterData.setFilterValue(data)
+                console.log(data)
             }).catch(error => {
                 console.log(error)
             })
@@ -53,16 +59,28 @@ const NavBar = () => {
     }
 
     return (
-        <nav>
-            <ul>
-                <li><Link onClick={(e) => funcNavToggle(e)} to={"/"}>todos os produtos</Link></li>
-                <li><Link onClick={(e) => funcNavToggle(e)} to={"/camisetas"}>camisa</Link></li>
-                <li><Link onClick={(e) => funcNavToggle(e)} to={"/tenis"}>tenis</Link></li>
-                <li><Link onClick={(e) => funcNavToggle(e)} to={"/sapatos"}>sapato</Link></li>
-                <li><Link onClick={(e) => funcNavToggle(e)} to={"/bolsas"}>bolsa</Link></li>
-            </ul>
-        </nav>
+        <>
+            <nav className="desktop">
+                <ul>
+                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/"}>todos os produtos</Link></li>
+                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/camisetas"}>camisa</Link></li>
+                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/tenis"}>tenis</Link></li>
+                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/sapatos"}>sapato</Link></li>
+                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/bolsas"}>bolsa</Link></li>
+                </ul>
+            </nav>
+            <nav className="mobile">
+                <ul>
+                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/"}><FaDumpster/></Link></li>
+                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/camisetas"}><FaShirt/></Link></li>
+                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/tenis"}><PiSneakerFill/></Link></li>
+                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/sapatos"}><GiRunningShoe/></Link></li>
+                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/boldas"}><FaShoppingBag/></Link></li>
+                </ul>
+            </nav>
+        </>
     )
+
 }
 
 export default NavBar
