@@ -35,10 +35,13 @@ const ProdutoIndividual = () => {
         if(element.className == "toggle") {
             element.classList.remove("toggle")
         }
+
+        if(element.className == "bg") {
+            element.classList.remove("bg")
+        }
     })
 
     function addCartShopping() {
-        let cont = 1
         const virifyIfExistProduct = addLocalStorage.find(product => product.id == data.id)
         
         if(virifyIfExistProduct) return

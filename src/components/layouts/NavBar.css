@@ -71,7 +71,7 @@ nav.mobile {
         padding: 8.7px 5%;
         z-index: 4;
         position: sticky;
-        top: 6.58rem;
+        top: 6.593rem;
         background-color: var(--bg-color);
 
         ul {
@@ -89,6 +89,10 @@ nav.mobile {
                     &:hover {
                         color: var(--color-star2);
                     }
+                }
+
+                a.bg {
+                    color: orange;
                 }
             }
         }

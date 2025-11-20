@@ -17,6 +17,10 @@ const Header = () => {
             if(element.className == "toggle") {
                 element.classList.remove("toggle")
             }
+
+            if(element.className == "bg") {
+                element.classList.remove("bg")
+            }
         })
     }
 
