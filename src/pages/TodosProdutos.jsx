@@ -12,13 +12,11 @@ const TodosProdutos = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["Products"],
         queryFn: async () => {
-            const response = await fetch("http://localhost:8080/products")
+            const response = await fetch("https://api-nenet.vercel.app/products")
             if(!response.ok) throw new Error("Erro ao buscar Produtos!")
             return response.json()
         }
     })
-
-    console.log(data)
 
     return (
         <main>

@@ -33,7 +33,7 @@ const NavBar = () => {
         }
 
         if(event.target.innerHTML !== "TODOS OS PRODUTOS") {
-            fetch(`http://localhost:8080/products/${event.target.innerHTML}`)
+            fetch(`https://api-nenet.vercel.app/products/${event.target.innerHTML}`)
             .then(res => {
                 return res.json()
             }).then(data => {
@@ -44,7 +44,7 @@ const NavBar = () => {
         }
 
         if(event.target.innerHTML == "TODOS OS PRODUTOS") {
-            fetch("http://localhost:8080/products")
+            fetch("https://api-nenet.vercel.app/products")
             .then(res => {
                 return res.json()
             }).then(data => {
@@ -71,7 +71,7 @@ const NavBar = () => {
         }
 
 
-        fetch("http://localhost:8080/products")
+        fetch("https://api-nenet.vercel.app/products")
         .then(res => {
             return res.json()
         }).then(data => {
@@ -96,7 +96,7 @@ const NavBar = () => {
             event.target.parentNode.parentNode.classList.add("bg")
         }
 
-        fetch(`http://localhost:8080/products/camisa`)
+        fetch(`https://api-nenet.vercel.app/products/camisa`)
         .then(res => {
             return res.json()
         }).then(data => {
@@ -121,7 +121,7 @@ const NavBar = () => {
             event.target.parentNode.parentNode.classList.add("bg")
         }
 
-        fetch(`http://localhost:8080/products/tenis`)
+        fetch(`https://api-nenet.vercel.app/products/tenis`)
         .then(res => {
             return res.json()
         }).then(data => {
@@ -146,7 +146,7 @@ const NavBar = () => {
             event.target.parentNode.parentNode.classList.add("bg")
         }
 
-        fetch(`http://localhost:8080/products/sapato`)
+        fetch(`https://api-nenet.vercel.app/products/sapato`)
         .then(res => {
             return res.json()
         }).then(data => {
@@ -171,7 +171,7 @@ const NavBar = () => {
             event.target.parentNode.parentNode.classList.add("bg")
         }
 
-        fetch(`http://localhost:8080/products/bolsa`)
+        fetch(`https://api-nenet.vercel.app/products/bolsa`)
         .then(res => {
             return res.json()
         }).then(data => {

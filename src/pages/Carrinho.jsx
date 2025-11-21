@@ -33,7 +33,7 @@ const Carrinho = () => {
 
         let AllProducts = products.map(product => product)
 
-        const res = await fetch("http://localhost:8080/create-checkout-session", {
+        const res = await fetch("https://api-nenet.vercel.app/create-checkout-session", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
