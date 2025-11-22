@@ -10,7 +10,14 @@ const TodasBolsas = () => {
 
     return (
         <main>
-            {FilterData.filterValue.length < 1 ? <Processando/> : <CardItem products={FilterData.filterValue}/>}
+            {
+                FilterData.filterValue.length < 1 ? 
+                <Processando/> 
+                : 
+                <CardItem 
+                    products={FilterData.filterValue}
+                />
+            }
         </main>
     )
 }

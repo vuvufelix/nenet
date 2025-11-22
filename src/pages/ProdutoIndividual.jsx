@@ -65,7 +65,10 @@ const ProdutoIndividual = () => {
                 : (
                     <section className="individual-data">
                         <div className="image">
-                            <img src={data.image} alt={data.name}/>
+                            <img 
+                                src={data.image} 
+                                alt={data.name}
+                            />
                         </div>
                         <div className="container-details">
                             <small>{data.category}</small>
@@ -77,7 +80,12 @@ const ProdutoIndividual = () => {
                                 <span>DESCRIÇÃO</span>
                                 <p>{data.description}</p>
                             </div>
-                            <button onClick={addCartShopping}><FaCartShopping/>adicionar ao carrinho</button>
+                            <button 
+                                onClick={addCartShopping}
+                            >
+                                <FaCartShopping/>
+                                adicionar ao carrinho
+                            </button>
                         </div>
                     </section>
                 )

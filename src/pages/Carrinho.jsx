@@ -57,16 +57,38 @@ const Carrinho = () => {
     return (
         <main className="car-container">
             <h2>seu carrinho</h2>
-            <span>Total ({AllData.valueLocalStorage.length} {AllData.valueLocalStorage.length <= 1 ? "produto" : "produtos"})</span>
+            <span>
+                Total 
+                
+                (
+                    {AllData.valueLocalStorage.length}
+
+                    {AllData.valueLocalStorage.length <= 1 
+                    ? 
+                    "produto" 
+                    : 
+                    "produtos"}
+                )
+            </span>
             <div className="container-infoCar">
                 <section className="allProduct-car">
                     {AllData.valueLocalStorage.map(product => (
-                        <div className="product" key={product.id}>
-                            <img src={product.image} alt={product.name}/>
+                        <div 
+                            className="product" 
+                            key={product.id}
+                        >
+                            <img 
+                                src={product.image} 
+                                alt={product.name}
+                            />
                             <div className="info">
                                 <span>{product.name}</span>
                                 <strong>usd {product.price}</strong>
-                                <button onClick={() => deleteProduct(product.id)}><FaRegTrashCan/></button>
+                                <button 
+                                    onClick={() => deleteProduct(product.id)}
+                                >
+                                    <FaRegTrashCan/>
+                                </button>
                             </div>
                         </div>
                     ))}
@@ -83,9 +105,17 @@ const Carrinho = () => {
                     </div>
                     <div className="arc">
                         <strong>Total</strong>
-                        <strong>usd {subtotalPrice > 0 ? totalPrice : 0}</strong>
+                        <strong>
+                            usd {subtotalPrice > 0 ? totalPrice : 0}
+                        </strong>
                     </div>
-                    <button onClick={() => handleCheckout(AllData.valueLocalStorage)}>finalizar a compra</button>
+                    <button 
+                        onClick={
+                            () => handleCheckout(AllData.valueLocalStorage)
+                        }
+                    >
+                        finalizar a compra
+                    </button>
                 </section>
             </div>
         </main>

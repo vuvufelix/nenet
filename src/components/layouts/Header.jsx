@@ -38,12 +38,26 @@ const Header = () => {
                 </div>
                 <div className="search-info-container">
                     <form>
-                        <input type="text" placeholder="Procurando por algo específico?"/>
+                        <input 
+                            type="text" 
+                            placeholder="Procurando por algo específico?"
+                        />
                         <button><FaMagnifyingGlass/></button>
                     </form>
-                    <Link onClick={removeToggle} className="carBuy" to={"/carrinho"}>
+                    <Link 
+                        onClick={removeToggle} 
+                        className="carBuy" 
+                        to={"/carrinho"}
+                    >
                         <FaCartShopping/>
-                        { DataProject.valueLocalStorage.length > 0 && <span className="quantity">{DataProject.valueLocalStorage.length}</span> }
+                        { 
+                            DataProject.valueLocalStorage.length > 0 && 
+                            <span 
+                                className="quantity"
+                            >
+                                {DataProject.valueLocalStorage.length}
+                            </span> 
+                        }
                     </Link>
                     <div className="toggleTheme" onClick={theme}>
                         <FaRegSun className="icon-day"/>

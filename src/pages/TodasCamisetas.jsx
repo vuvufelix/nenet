@@ -9,7 +9,14 @@ const TodasCamisetas = () => {
 
     return (
         <main>
-            {DataProject.filterValue.length < 1 ? <Processando/> : <CardItem products={DataProject.filterValue}/>}
+            {
+                DataProject.filterValue.length < 1 ? 
+                <Processando/> 
+                : 
+                <CardItem 
+                    products={DataProject.filterValue}
+                />
+            }
         </main>
     )
 }

@@ -10,7 +10,16 @@ export function GlobalDataProvider({ children }) {
     const [ valueLocalStorage, setValueLocalStorage ] = useState([])
 
     return (
-        <GlobalDataContext.Provider value={{filterValue, setFilterValue, valueLocalStorage, setValueLocalStorage}}>
+        <GlobalDataContext.Provider 
+            value={
+                {
+                    filterValue, 
+                    setFilterValue, 
+                    valueLocalStorage, 
+                    setValueLocalStorage
+                }
+            }
+        >
             { children }
         </GlobalDataContext.Provider>
     )

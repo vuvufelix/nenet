@@ -20,7 +20,19 @@ const TodosProdutos = () => {
 
     return (
         <main>
-            {isLoading ? <Processando/> : <CardItem products={data.length > 0 ? data : DataProject.filterValue}/>}
+            {
+                isLoading ? 
+                <Processando/> 
+                : 
+                <CardItem 
+                    products={
+                        data.length > 0 ?
+                        data 
+                        : 
+                        DataProject.filterValue
+                    }
+                />
+            }
         </main>
     )
 }
