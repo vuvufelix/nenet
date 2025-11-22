@@ -33,7 +33,7 @@ const NavBar = () => {
         }
 
         if(event.target.innerHTML !== "TODOS OS PRODUTOS") {
-            fetch(`https://api-nenet.vercel.app/products/${event.target.innerHTML}`)
+            fetch(`https://ecommerceapi-8obj.onrender.com/products/${event.target.innerHTML}`)
             .then(res => {
                 return res.json()
             }).then(data => {
@@ -44,7 +44,7 @@ const NavBar = () => {
         }
 
         if(event.target.innerHTML == "TODOS OS PRODUTOS") {
-            fetch("https://api-nenet.vercel.app/products")
+            fetch("https://ecommerceapi-8obj.onrender.com/products")
             .then(res => {
                 return res.json()
             }).then(data => {
@@ -71,7 +71,7 @@ const NavBar = () => {
         }
 
 
-        fetch("https://api-nenet.vercel.app/products")
+        fetch("https://ecommerceapi-8obj.onrender.com/products")
         .then(res => {
             return res.json()
         }).then(data => {
@@ -96,7 +96,7 @@ const NavBar = () => {
             event.target.parentNode.parentNode.classList.add("bg")
         }
 
-        fetch(`https://api-nenet.vercel.app/products/camisa`)
+        fetch(`https://ecommerceapi-8obj.onrender.com/products/camisa`)
         .then(res => {
             return res.json()
         }).then(data => {
@@ -121,7 +121,7 @@ const NavBar = () => {
             event.target.parentNode.parentNode.classList.add("bg")
         }
 
-        fetch(`https://api-nenet.vercel.app/products/tenis`)
+        fetch(`https://ecommerceapi-8obj.onrender.com/products/tenis`)
         .then(res => {
             return res.json()
         }).then(data => {
@@ -146,7 +146,7 @@ const NavBar = () => {
             event.target.parentNode.parentNode.classList.add("bg")
         }
 
-        fetch(`https://api-nenet.vercel.app/products/sapato`)
+        fetch(`https://ecommerceapi-8obj.onrender.com/products/sapato`)
         .then(res => {
             return res.json()
         }).then(data => {
@@ -171,7 +171,7 @@ const NavBar = () => {
             event.target.parentNode.parentNode.classList.add("bg")
         }
 
-        fetch(`https://api-nenet.vercel.app/products/bolsa`)
+        fetch(`https://ecommerceapi-8obj.onrender.com/products/bolsa`)
         .then(res => {
             return res.json()
         }).then(data => {

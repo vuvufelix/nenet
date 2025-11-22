@@ -24,7 +24,7 @@ const ProdutoIndividual = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["Products"],
         queryFn: async () => {
-            const response = await fetch(`https://api-nenet.vercel.app/product/${id}`)
+            const response = await fetch(`https://ecommerceapi-8obj.onrender.com/product/${id}`)
             if(!response.ok) throw new Error("Erro ao buscar Produtos!")
             return response.json()
         }
