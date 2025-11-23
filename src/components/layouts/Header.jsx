@@ -29,7 +29,6 @@ const Header = () => {
     function redirectSearch(e) {
         e.preventDefault()
         navigate(`/search/${search}`)
-        setSearch("")
     }
 
     function theme() {

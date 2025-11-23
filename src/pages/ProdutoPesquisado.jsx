@@ -17,17 +17,10 @@ const ProdutoPesquisado = () => {
         }
     })
 
-    if(data.length <= 0) {
-        return (
-            <main>
-                <h4>Não existe este produto na nossa loja</h4>
-            </main>
-        )
-    }
-
     return (
         <main className="car-container">
             <h2>Resultado da pesquisa:</h2>
+            {data.length <= 0 && <h3>Não existe este produto na nossa loja</h3>}
             {
                 isLoading ? 
                 <Processando/>
