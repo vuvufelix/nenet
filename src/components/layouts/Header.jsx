@@ -41,7 +41,7 @@ const Header = () => {
             <div className="header-container">
                 <div className="nenet-title">
                     <FaLeaf className="logo-title"/>
-                    <h1>Nenet</h1>
+                    <h1>Neneth</h1>
                 </div>
                 <div className="search-info-container">
                     <form>
