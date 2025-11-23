@@ -8,9 +8,9 @@ Este é um projeto de **E-commerce moderno e responsivo** construído integralme
 
 ![imagem para ver o ecommerce](./src/assets/screencapture-nenet-vercel-app-2025-11-23-16_47_09.png)
 
-![imagem para ver o ecommerce](./src/assets/screencapture-nenet-vercel-app-carrinho-2025-11-23-16_51_34.png)
-
 ![imagem para ver o ecommerce](./src/assets/screencapture-nenet-vercel-app-product-16-2025-11-23-16_50_00.png)
+
+![imagem para ver o ecommerce](./src/assets/screencapture-nenet-vercel-app-carrinho-2025-11-23-16_51_34.png)
 
 ## ⚙️ Tecnologias Utilizadas
 
