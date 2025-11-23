@@ -1,16 +1,18 @@
 import { FaMagnifyingGlass } from "react-icons/fa6"
 import { FaCartShopping } from "react-icons/fa6"
 import { FaLeaf } from "react-icons/fa6"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./Header.css"
 import GlobalDataContext from "../../context/DadosGlobais.jsx"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { FaRegSun } from "react-icons/fa6"
 import { FaRegMoon } from "react-icons/fa6"
 
 const Header = () => {
 
     const DataProject = useContext(GlobalDataContext)
+    const [search, setSearch] = useState("")
+    const navigate = useNavigate()
 
     function removeToggle() {
         Array.from(document.getElementsByTagName("a")).forEach(element => {
@@ -22,6 +24,12 @@ const Header = () => {
                 element.classList.remove("bg")
             }
         })
+    }
+
+    function redirectSearch(e) {
+        e.preventDefault()
+        navigate(`/search/${search}`)
+        setSearch("")
     }
 
     function theme() {
@@ -41,8 +49,9 @@ const Header = () => {
                         <input 
                             type="text" 
                             placeholder="Procurando por algo específico?"
+                            onChange={e => setSearch(e.target.value)}
                         />
-                        <button><FaMagnifyingGlass/></button>
+                        <button onClick={(e) => redirectSearch(e)}><FaMagnifyingGlass/></button>
                     </form>
                     <Link 
                         onClick={removeToggle} 

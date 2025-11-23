@@ -59,12 +59,9 @@ const Carrinho = () => {
             <h2>seu carrinho</h2>
             <span>
                 Total 
-                
-                (
-                    {AllData.valueLocalStorage.length}
 
-                    {AllData.valueLocalStorage.length <= 1 
-                    ? 
+                (
+                    {AllData.valueLocalStorage.length} {AllData.valueLocalStorage.length <= 1 ? 
                     "produto" 
                     : 
                     "produtos"}

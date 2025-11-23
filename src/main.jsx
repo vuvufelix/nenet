@@ -12,6 +12,7 @@ import ProdutoIndividual from "./pages/ProdutoIndividual.jsx"
 import Carrinho from "./pages/Carrinho.jsx"
 import PagamentoCancelado from "./pages/PagamentoCancelado.jsx"
 import SucessoNoPagamento from "./pages/SucessoNoPagamento.jsx"
+import ProdutoPesquisado from "./pages/ProdutoPesquisado.jsx"
 
 import { GlobalDataProvider } from "./context/DadosGlobais.jsx"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <ProdutoIndividual/>
+      },
+      {
+        path: "/search/:name",
+        element: <ProdutoPesquisado/>
       },
       {
         path: "/success",
