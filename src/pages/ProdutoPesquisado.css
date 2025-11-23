@@ -1,0 +1,47 @@
+.container-search {
+    flex: 1;
+    margin: 1.5rem 0 1.5rem 0;
+    padding: 0 5%;
+    flex-direction: column;
+    
+    .result {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    h2 {
+        text-transform: uppercase;  
+        color: var(--color-h2); 
+    }
+    
+    span {
+        font-size: 0.9rem;
+        margin-top: -0.5rem;
+        color: var(--color-h2);
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        color: var(--color-item);
+    }    
+}
+
+@media screen and (max-width: 948px) {
+    .container-search {
+        h2 {
+            font-size: 1.1rem;
+        }
+
+        span {
+            font-size: 0.9rem;
+        }
+
+        h3 {
+            font-size: 0.9rem;
+        }
+    }
+}

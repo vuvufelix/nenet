@@ -1,7 +1,8 @@
 import Processando from "../components/Processando.jsx"
 import { useQuery } from "@tanstack/react-query"
 import ValorDaPesquisa from "../components/ValorDaPesquisa.jsx"
-import "./Produtos.css"
+import "./ProdutoPesquisado.css"
+import "../components/CardItem.css"
 import { useParams } from "react-router-dom"
 
 const ProdutoPesquisado = () => {
@@ -18,17 +19,19 @@ const ProdutoPesquisado = () => {
     })
 
     return (
-        <main className="car-container">
+        <main className="container-search">
             <h2>Resultado da pesquisa:</h2>
             {data.length <= 0 && <h3>Não existe este produto na nossa loja</h3>}
-            {
-                isLoading ? 
-                <Processando/>
-                :
-                <ValorDaPesquisa 
-                    products={data} 
-                />
-            }
+            <div className="result">
+                {
+                    isLoading ? 
+                    <Processando/>
+                    :
+                    <ValorDaPesquisa 
+                        products={data} 
+                    />
+                }
+            </div>
         </main>
     )
 }
