@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    /*height: 20rem;*/
+    height: 25rem;
     width: 80%;
 }
 
@@ -96,6 +96,7 @@
 @media screen and (max-width: 648px) {
     .individual-data {
         flex-direction: column;
+        height: auto;
     }
 
     .image {

@@ -12,47 +12,46 @@ nav.desktop {
         gap: 3rem;
         list-style: none;
 
-        li {
+        .menu-item {
             font-size: 0.7rem;
             cursor: pointer;
             transition: 0.3s;
             position: relative;
+            transition: .2s;
 
             a {
                 text-decoration: none;
                 text-transform: uppercase;
                 font-weight: bold;
                 color: var(--color-star);
-                transition: .2s;
-            }
-
-            a.toggle {            
-                font-size: 0.8rem;
-                font-style: italic;
-
-                &::before {
-                    position: absolute;
-                    content: "";
-                    height: 0.17rem;
-                    background-color: orange;
-                    width: 100%;
-                    bottom: -4px;
-                }
-
             }
         }
 
-    }
-    
-    li:hover {
-        &::before {
-            position: absolute;
-            content: "";
-            height: 0.17rem;
-            background-color: orange;
-            width: 100%;
-            bottom: -4px;
+        .menu-item.active {
+            font-size: 0.8rem;
             font-style: italic;
+
+            &::before {
+                position: absolute;
+                content: "";
+                height: 0.17rem;
+                background-color: orange;
+                width: 100%;
+                bottom: -4px;
+            }
+        }
+
+
+        .menu-item:hover {
+            &::before {
+                position: absolute;
+                content: "";
+                height: 0.17rem;
+                background-color: orange;
+                width: 100%;
+                bottom: -4px;
+                font-style: italic;
+            } 
         }
     }
 }
@@ -81,19 +80,21 @@ nav.mobile {
             justify-content: space-between;
 
             li {
-                a {
+
+                .menu-item-mobile {
                     font-size: 1.5rem;
                     color: var(--color-star);
                     transition: .4s;
 
                     &:hover {
-                        color: var(--color-star2);
+                        color: orange;
                     }
                 }
 
-                a.bg {
+                .menu-item-mobile.activeMobile {
                     color: orange;
                 }
+
             }
         }
     }
@@ -104,7 +105,7 @@ nav.mobile {
     nav.mobile {
         ul {
             li {
-                a {
+                .menu-item-mobile {
                     font-size: 1.25rem;
                 }
             }

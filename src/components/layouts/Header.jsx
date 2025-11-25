@@ -14,18 +14,6 @@ const Header = () => {
     const [search, setSearch] = useState("")
     const navigate = useNavigate()
 
-    function removeToggle() {
-        Array.from(document.getElementsByTagName("a")).forEach(element => {
-            if(element.className == "toggle") {
-                element.classList.remove("toggle")
-            }
-
-            if(element.className == "bg") {
-                element.classList.remove("bg")
-            }
-        })
-    }
-
     function redirectSearch(e) {
         e.preventDefault()
         navigate(`/search/${search}`)
@@ -52,8 +40,7 @@ const Header = () => {
                         />
                         <button onClick={(e) => redirectSearch(e)}><FaMagnifyingGlass/></button>
                     </form>
-                    <Link 
-                        onClick={removeToggle} 
+                    <Link  
                         className="carBuy" 
                         to={"/carrinho"}
                     >

@@ -11,194 +11,78 @@ import { FaDumpster } from "react-icons/fa6"
 import { useState } from "react"
 
 const NavBar = () => {
+
     const [value, setValue] = useState(false)
     const FilterData = useContext(GlobalDataContext)
+    const [activeMenu, setActiveMenu] = useState("todos os produtos")
 
-    function funcNavToggle(event) {
+    const menus = ["todos os produtos", "camisa", "tenis", "sapato", "bolsa"]    
+    
+    const menuMobiles = [
+        { icon: <FaDumpster/>, name: "todos os produtos" },
+        { icon: <FaShirt/> , name: "camisa" },
+        { icon: <PiSneakerFill/> , name: "tenis" },
+        { icon: <GiRunningShoe/> , name: "sapato" },
+        { icon: <FaShoppingBag/> , name: "bolsa" }
+    ]
+    
+    function filterCategory(menuAndCategory) {
 
-        setValue(false)
+        setActiveMenu(menuAndCategory)
 
-        Array.from(document.getElementsByTagName("a")).forEach(element => {
-            if(element.className == "toggle") {
-                element.classList.remove("toggle")
-            }
+        fetch(`https://ecommerceapi-8obj.onrender.com/products/${menuAndCategory}`)
+        .then(res => {
+            return res.json()
+        }).then(data => {
+            FilterData.setFilterValue(data)
+        }).catch(error => {
+            console.log(error)
         })
+
+    }
         
-        setValue(true)
-
-        if(value) {
-            if(event.target.innerHTML) {
-                event.target.classList.add("toggle")
-            }
-        }
-
-        if(event.target.innerHTML !== "TODOS OS PRODUTOS") {
-            fetch(`https://ecommerceapi-8obj.onrender.com/products/${event.target.innerHTML}`)
-            .then(res => {
-                return res.json()
-            }).then(data => {
-                FilterData.setFilterValue(data)
-            }).catch(error => {
-                console.log(error)
-            })
-        }
-
-        if(event.target.innerHTML == "TODOS OS PRODUTOS") {
-            fetch("https://ecommerceapi-8obj.onrender.com/products")
-            .then(res => {
-                return res.json()
-            }).then(data => {
-                FilterData.setFilterValue(data)
-            }).catch(error => {
-                console.error(error)
-            })
-        }
-    }
-
-    function allProducts(event) {
-        setValue(false)
-
-        Array.from(document.getElementsByTagName("a")).forEach(element => {
-            if(element.className == "bg") {
-                element.classList.remove("bg")
-            }
-        })
-
-        setValue(true)
-
-        if(value) {
-            event.target.parentNode.parentNode.classList.add("bg")
-        }
-
-
-        fetch("https://ecommerceapi-8obj.onrender.com/products")
-        .then(res => {
-            return res.json()
-        }).then(data => {
-            FilterData.setFilterValue(data)
-        }).catch(error => {
-            console.error(error)
-        })
-    }
-
-    function shirt(event) {
-        setValue(false)
-
-        Array.from(document.getElementsByTagName("a")).forEach(element => {
-            if(element.className == "bg") {
-                element.classList.remove("bg")
-            }
-        })
-
-        setValue(true)
-
-        if(value) {
-            event.target.parentNode.parentNode.classList.add("bg")
-        }
-
-        fetch(`https://ecommerceapi-8obj.onrender.com/products/camisa`)
-        .then(res => {
-            return res.json()
-        }).then(data => {
-            FilterData.setFilterValue(data)
-        }).catch(error => {
-            console.error(error)
-        })
-    }
-
-    function sneaker(event) {
-        setValue(false)
-
-        Array.from(document.getElementsByTagName("a")).forEach(element => {
-            if(element.className == "bg") {
-                element.classList.remove("bg")
-            }
-        })
-
-        setValue(true)
-
-        if(value) {
-            event.target.parentNode.parentNode.classList.add("bg")
-        }
-
-        fetch(`https://ecommerceapi-8obj.onrender.com/products/tenis`)
-        .then(res => {
-            return res.json()
-        }).then(data => {
-            FilterData.setFilterValue(data)
-        }).catch(error => {
-            console.error(error)
-        })
-    }
-
-    function shoe(event) {
-        setValue(false)
-
-        Array.from(document.getElementsByTagName("a")).forEach(element => {
-            if(element.className == "bg") {
-                element.classList.remove("bg")
-            }
-        })
-
-        setValue(true)
-
-        if(value) {
-            event.target.parentNode.parentNode.classList.add("bg")
-        }
-
-        fetch(`https://ecommerceapi-8obj.onrender.com/products/sapato`)
-        .then(res => {
-            return res.json()
-        }).then(data => {
-            FilterData.setFilterValue(data)
-        }).catch(error => {
-            console.error(error)
-        })
-    }
-
-    function bag(event) {
-        setValue(false)
-
-        Array.from(document.getElementsByTagName("a")).forEach(element => {
-            if(element.className == "bg") {
-                element.classList.remove("bg")
-            }
-        })
-
-        setValue(true)
-
-        if(value) {
-            event.target.parentNode.parentNode.classList.add("bg")
-        }
-
-        fetch(`https://ecommerceapi-8obj.onrender.com/products/bolsa`)
-        .then(res => {
-            return res.json()
-        }).then(data => {
-            FilterData.setFilterValue(data)
-        }).catch(error => {
-            console.error(error)
-        })
-    }
-
     return (
         <>
             <nav className="desktop">
                 <ul>
-                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/"}>todos os produtos</Link></li>
-                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/camisetas"}>camisa</Link></li>
-                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/tenis"}>tenis</Link></li>
-                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/sapatos"}>sapato</Link></li>
-                    <li><Link onClick={(e) => funcNavToggle(e)} to={"/bolsas"}>bolsa</Link></li>
+                    {
+                        menus.map((menu, index) => (
+                            <li 
+                                key={index} 
+                                className={`menu-item ${activeMenu == menu ? "active" : ""}`}
+                            >
+                                <Link 
+                                    onClick={
+                                        () => filterCategory(menu)
+                                    } 
+                                    to={menu !== "todos os produtos" ? `/${menu}`: "/"}
+                                >
+                                    {menu}
+                                </Link>
+                            </li>
+                        ))
+                    }
                 </ul>
             </nav>
             <nav className="mobile">
                 <ul>
-                    <li><Link onClick={(e) => allProducts(e)} to={"/"}><FaDumpster/></Link></li>
-                    <li><Link onClick={(e) => shirt(e)} to={"/camisetas"}><FaShirt/></Link></li>
-                    <li><Link onClick={(e) => sneaker(e)} to={"/tenis"}><PiSneakerFill/></Link></li>
-                    <li><Link onClick={(e) => shoe(e)} to={"/sapatos"}><GiRunningShoe/></Link></li>
-                    <li><Link onClick={(e) => bag(e)} to={"/bolsas"}><FaShoppingBag/></Link></li>
+                    {
+                        menuMobiles.map((menu, index) => (
+                            <li 
+                                key={index}
+                            >
+                                <Link 
+                                    className={`menu-item-mobile ${activeMenu == menu.name ? "activeMobile" : ""}`}
+                                    onClick={
+                                        () => filterCategory(menu.name)
+                                    }
+                                    to={menu.name !== "todos os produtos" ? `/${menu.name}` : ""}
+                                >
+                                    {menu.icon}
+                                </Link>
+                            </li>
+                        ))
+                    }
                 </ul>
             </nav>
         </>

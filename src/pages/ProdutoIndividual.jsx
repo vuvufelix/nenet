@@ -12,7 +12,6 @@ const ProdutoIndividual = () => {
     const { id } = useParams()
     const [addLocalStorage, setAddLocalStorage] = useState([])
     const IndividualProject = useContext(GlobalDataContext)
-    //const cont = useRef(addLocalStorage)
 
     useEffect(() => {
         const localStorageData = JSON.parse(localStorage.getItem("Products"))
@@ -27,17 +26,6 @@ const ProdutoIndividual = () => {
             const response = await fetch(`https://ecommerceapi-8obj.onrender.com/product/${id}`)
             if(!response.ok) throw new Error("Erro ao buscar Produtos!")
             return response.json()
-        }
-    })
-
-
-    Array.from(document.getElementsByTagName("a")).forEach(element => {
-        if(element.className == "toggle") {
-            element.classList.remove("toggle")
-        }
-
-        if(element.className == "bg") {
-            element.classList.remove("bg")
         }
     })
 
