@@ -2,7 +2,7 @@
     "rewrite": [
         {
             "source": "/(.*)",
-            "destination": "/index.html"
+            "destination": "/"
         }
     ]
 }

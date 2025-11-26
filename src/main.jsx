@@ -30,39 +30,39 @@ const router = createBrowserRouter([
         element: <TodosProdutos/>
       },
       {
-        path: "/camisa",
+        path: "camisa",
         element: <TodasCamisetas/>
       },
       {
-        path: "/tenis",
+        path: "tenis",
         element: <TodosTenis/>
       },
       {
-        path: "/sapato",
+        path: "sapato",
         element: <TodosSapatos/>
       },
       {
-        path: "/bolsa",
+        path: "bolsa",
         element: <TodasBolsas/>
       },
       {
-        path: "/carrinho",
+        path: "carrinho",
         element: <Carrinho/>
       },
       {
-        path: "/product/:id",
+        path: "product/:id",
         element: <ProdutoIndividual/>
       },
       {
-        path: "/search/:name",
+        path: "search/:name",
         element: <ProdutoPesquisado/>
       },
       {
-        path: "/success",
+        path: "success",
         element: <SucessoNoPagamento/>
       },
       {
-        path: "/cancel",
+        path: "cancel",
         element: <PagamentoCancelado/>
       }
     ]
